@@ -36,7 +36,7 @@ export GO111MODULE := on
 # Kubebuilder.
 #
 #To do check kubernetes version
-export KUBEBUILDER_ENVTEST_KUBERNETES_VERSION ?= 1.20.1
+export KUBEBUILDER_ENVTEST_KUBERNETES_VERSION ?= 1.23.3
 
 # Directories
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
@@ -127,8 +127,9 @@ KUBEBUILDER_ASSETS ?= $(shell $(SETUP_ENVTEST) use --use-env -p path $(KUBEBUILD
 
 .PHONY: test
 test: $(SETUP_ENVTEST) $(GOVC)
+	KUBEBUILDER_ASSETS="$(KUBEBUILDER_ASSETS)" GOVC_BIN_PATH=$(GOVC) go test -v ./apis/... ./controllers/... ./pkg/... $(TEST_ARGS)
 	$(MAKE) generate lint-go
-	KUBEBUILDER_ASSETS="$(KUBEBUILDER_ASSETS)" export GOVC_BIN_PATH=$(GOVC); go test -v ./apis/... ./controllers/... ./pkg/... $(TEST_ARGS)
+
 
 .PHONY: e2e-image
 e2e-image: ## Build the e2e manager image
@@ -198,7 +199,7 @@ $(CLUSTERCTL): go.mod
 	go build -o $@ sigs.k8s.io/cluster-api/cmd/clusterctl
 
 $(SETUP_ENVTEST): $(TOOLS_DIR)/go.mod # Build setup-envtest from tools folder.
-	cd $(TOOLS_DIR); go build -tags=tools -o $(BIN_DIR)/setup-envtest sigs.k8s.io/controller-runtime/tools/setup-envtest
+	cd $(TOOLS_DIR); go build -tags=tools -o $(TOOLS_BIN_DIR)/setup-envtest sigs.k8s.io/controller-runtime/tools/setup-envtest
 
 ## --------------------------------------
 ## Tooling Binaries
