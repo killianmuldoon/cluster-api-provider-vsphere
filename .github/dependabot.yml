@@ -18,6 +18,10 @@ updates:
   schedule:
     interval: "weekly"
     day: "monday"
+  ## group all dependencies with a K8s.io prefix into a single PR where possible
+  groups:
+    kubernetes:
+      patterns: ["k8s.io/*"]
   ignore:
   # Ignore controller-runtime as its upgraded manually.
   - dependency-name: "sigs.k8s.io/controller-runtime"
