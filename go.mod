@@ -2,7 +2,7 @@ module sigs.k8s.io/cluster-api-provider-vsphere
 
 go 1.20
 
-replace sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.5.0
+replace sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.4.1
 
 require (
 	github.com/blang/semver/v4 v4.0.0
@@ -26,23 +26,22 @@ require (
 	golang.org/x/tools v0.12.0
 	gopkg.in/gcfg.v1 v1.2.3
 	gopkg.in/yaml.v2 v2.4.0
-	k8s.io/api v0.27.4
-	k8s.io/apiextensions-apiserver v0.27.4
-	k8s.io/apimachinery v0.27.4
-	k8s.io/client-go v0.27.4
-	k8s.io/cluster-bootstrap v0.27.4
-	k8s.io/component-base v0.27.4
+	k8s.io/api v0.27.3
+	k8s.io/apiextensions-apiserver v0.27.3
+	k8s.io/apimachinery v0.27.3
+	k8s.io/client-go v0.27.3
+	k8s.io/cluster-bootstrap v0.27.3
+	k8s.io/component-base v0.27.3
 	k8s.io/klog/v2 v2.90.1
 	k8s.io/utils v0.0.0-20230209194617-a36077c30491
 	sigs.k8s.io/cluster-api v0.0.0-00010101000000-000000000000
-	sigs.k8s.io/cluster-api/test v1.5.0
+	sigs.k8s.io/cluster-api/test v1.4.1
 	sigs.k8s.io/controller-runtime v0.15.1
 	sigs.k8s.io/kind v0.20.0
 	sigs.k8s.io/yaml v1.3.0
 )
 
 require (
-	github.com/adrg/xdg v0.4.0 // indirect
 	github.com/emicklei/go-restful/v3 v3.10.2 // indirect
 	github.com/go-logr/zapr v1.2.4 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
